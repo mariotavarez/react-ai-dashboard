@@ -1,35 +1,46 @@
-# React AI Dashboard
+<div align="center">
 
-A production-grade AI analytics dashboard built with React 19 and TypeScript 5.7, featuring AI-powered insights, real-time data visualization, and a polished dark-mode UI.
+# NeuralMetrics
+
+**Your product's pulse — visualized.**
+
+A production-grade AI analytics dashboard with live KPI metrics, revenue charts, ML-driven insights, and an activity feed — all wrapped in a polished dark UI.
 
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-4.1-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![Vite](https://img.shields.io/badge/Vite-6.2-646CFF?logo=vite&logoColor=white)](https://vitejs.dev)
 
-## Preview
-
 ![ Demo](.github/demo.gif)
+
+</div>
+
+---
+
+## What is NeuralMetrics?
+
+An analytics dashboard template that looks like it cost a lot to build. KPI cards with trend indicators, interactive area and bar charts, an AI insights panel with confidence scores, and a live activity feed — all in a dark theme with violet/indigo gradient accents.
+
+Built as a showcase of composable React 19 architecture using Recharts, Lucide icons, Tailwind CSS v4, and a clean **Atomic Design** layer structure from atoms to pages.
+
+```bash
+git clone https://github.com/mariotavarez/react-ai-dashboard.git
+cd react-ai-dashboard && npm install && npm run dev
+```
+
+---
 
 ## Features
 
-- **Interactive Charts** — Revenue, profit, and user growth visualized with Recharts
-- **Dark Mode UI** — Polished dark-mode interface with gradient accents
-- **KPI Metric Cards** — Real-time metrics with trend indicators and percentage changes
-- **AI Insights Panel** — ML-driven recommendations with confidence scores
-- **Activity Feed** — Real-time stream of user actions across the platform
-- **Responsive** — Fully adaptive from mobile to ultra-wide displays
+- **KPI Metric Cards** — Revenue, active users, conversion rate, and churn with trend badges and % change
+- **Revenue Chart** — Interactive Recharts AreaChart with period selector (7D / 30D / 90D / 1Y)
+- **User Growth Chart** — Recharts BarChart showing new vs. returning users over time
+- **AI Insights Panel** — ML-driven recommendations with confidence scores and progress bars
+- **Activity Feed** — Real-time stream of user events with avatars and action badges
+- **Navigation Sidebar** — Fixed left sidebar with active section highlighting and AI credits widget
+- **Responsive** — Adapts from mobile single column to ultra-wide multi-panel layouts
 
-## Tech Stack
-
-| Technology | Version | Purpose |
-|---|---|---|
-| React | 19 | UI framework |
-| TypeScript | 5.7 | Static type safety |
-| Tailwind CSS | v4 | Vite plugin — zero config |
-| Recharts | 2.10 | Composable chart library |
-| Lucide React | 0.344 | Icon set |
-| Vite | 6.2 | Build tooling |
+---
 
 ## Quick Start
 
@@ -40,59 +51,57 @@ npm install
 npm run dev
 ```
 
+Open [http://localhost:5173](http://localhost:5173)
+
+---
+
 ## Structure — Atomic Design
 
 ```
 src/
 ├── atoms/
-│   ├── Avatar.tsx          # Initials avatar with gradient option
-│   ├── Badge.tsx           # Generic badge with variants
-│   ├── Button.tsx          # Primary / ghost / period variants
-│   ├── IconWrapper.tsx     # Lucide icon with colored background
-│   ├── ProgressBar.tsx     # 0–100 progress bar
-│   └── TrendBadge.tsx      # Up/down percentage indicator
+│   ├── Avatar.tsx          # initials avatar with gradient background option
+│   ├── Badge.tsx           # generic badge with status/color variants
+│   ├── Button.tsx          # primary / ghost / period selector variants
+│   ├── IconWrapper.tsx     # Lucide icon with colored circular background
+│   ├── ProgressBar.tsx     # 0-100 animated progress bar
+│   └── TrendBadge.tsx      # up/down percentage trend indicator
 ├── molecules/
-│   ├── ActivityItem.tsx    # Feed row (Avatar + Badge)
-│   ├── InsightCard.tsx     # AI insight (IconWrapper + Badge + ProgressBar)
-│   ├── MetricCard.tsx      # KPI card (IconWrapper + TrendBadge)
-│   ├── NavItem.tsx         # Sidebar nav button
-│   └── SearchInput.tsx     # Search field with icon
+│   ├── ActivityItem.tsx    # feed row combining Avatar + action text + Badge
+│   ├── InsightCard.tsx     # AI insight with IconWrapper + Badge + ProgressBar
+│   ├── MetricCard.tsx      # KPI card with IconWrapper + value + TrendBadge
+│   ├── NavItem.tsx         # sidebar navigation button with active state
+│   └── SearchInput.tsx     # search field with magnifier icon
 ├── organisms/
-│   ├── ActivityFeed.tsx    # List of ActivityItems
-│   ├── AiInsightsPanel.tsx # List of InsightCards
-│   ├── MetricGrid.tsx      # Grid of MetricCards
-│   ├── RevenueChart.tsx    # Recharts AreaChart with period selector
-│   ├── Sidebar.tsx         # Full navigation sidebar
-│   ├── TopBar.tsx          # Header bar
-│   └── UserGrowthChart.tsx # Recharts BarChart
+│   ├── ActivityFeed.tsx    # scrollable list of ActivityItems
+│   ├── AiInsightsPanel.tsx # list of InsightCards with section header
+│   ├── MetricGrid.tsx      # responsive 2x2 or 4x1 grid of MetricCards
+│   ├── RevenueChart.tsx    # AreaChart with gradient fill + period buttons
+│   ├── Sidebar.tsx         # full navigation sidebar with AI credits widget
+│   ├── TopBar.tsx          # header with search, notifications, user avatar
+│   └── UserGrowthChart.tsx # BarChart comparing new vs returning users
 ├── templates/
-│   └── DashboardLayout.tsx # Sidebar + TopBar + main content wrapper
+│   └── DashboardLayout.tsx # Sidebar + TopBar + scrollable main content
 ├── pages/
-│   └── DashboardPage.tsx   # Full page composition
-├── data/mockData.ts
-├── types/index.ts
-├── App.tsx
-└── main.tsx
+│   └── DashboardPage.tsx   # full page composition with section routing
+└── data/mockData.ts        # KPI metrics, chart data, insights, activity feed
 ```
 
-## Tailwind CSS v4
+---
 
-Uses the official `@tailwindcss/vite` plugin — no `tailwind.config.js` or PostCSS config needed:
+## Tech Stack
 
-```ts
-// vite.config.ts
-import tailwindcss from '@tailwindcss/vite'
+| Technology | Version | Purpose |
+|---|---|---|
+| React | 19 | UI framework |
+| TypeScript | 5.7 | Strict type safety |
+| Tailwind CSS | v4 | Vite plugin — zero config |
+| Recharts | 2.10 | AreaChart and BarChart visualizations |
+| Lucide React | 0.344 | Icon set |
+| Vite | 6.2 | Build tool |
 
-export default defineConfig({
-  plugins: [react(), tailwindcss()],
-})
-```
-
-```css
-/* src/index.css */
-@import "tailwindcss";
-```
+---
 
 ## License
 
-MIT © Mario Tavarez
+MIT © [Mario Tavarez](https://github.com/mariotavarez)
