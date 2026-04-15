@@ -4,8 +4,12 @@ A sleek, production-grade AI analytics dashboard built with React 18 and TypeScr
 
 [![React](https://img.shields.io/badge/React-18.2-61DAFB?logo=react&logoColor=white)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.2-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
-[![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-3.4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-4.1-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![Vite](https://img.shields.io/badge/Vite-5.1-646CFF?logo=vite&logoColor=white)](https://vitejs.dev)
+
+## 📸 Preview
+
+![ Demo](.github/demo.gif)
 
 ## ✨ Features
 
@@ -22,10 +26,10 @@ A sleek, production-grade AI analytics dashboard built with React 18 and TypeScr
 |---|---|
 | React 18 | UI framework |
 | TypeScript | Static type safety |
-| Tailwind CSS | Utility-first styling |
+| **Tailwind CSS v4** | Vite plugin — zero config |
 | Recharts | Composable chart library |
-| Lucide React | Beautiful icon set |
-| Vite | Next-gen build tooling |
+| Lucide React | Icon set |
+| Vite | Build tooling |
 
 ## 🚀 Quick Start
 
@@ -36,9 +40,7 @@ npm install
 npm run dev
 ```
 
-Visit `http://localhost:5173`
-
-## 📁 Project Structure
+## 📁 Structure
 
 ```
 src/
@@ -50,12 +52,28 @@ src/
 │   ├── Sidebar.tsx         # Navigation sidebar
 │   ├── TopBar.tsx          # Header bar
 │   └── UserGrowthChart.tsx # Bar chart for user growth
-├── data/
-│   └── mockData.ts
-├── types/
-│   └── index.ts
+├── data/mockData.ts
+├── types/index.ts
 ├── App.tsx
 └── main.tsx
+```
+
+## ⚙️ Tailwind CSS v4
+
+Uses the official **`@tailwindcss/vite`** plugin — no `tailwind.config.js` or PostCSS config needed:
+
+```ts
+// vite.config.ts
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+})
+```
+
+```css
+/* src/index.css */
+@import "tailwindcss";
 ```
 
 ## 📄 License

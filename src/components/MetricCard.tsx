@@ -1,8 +1,8 @@
-import { TrendingUp, TrendingDown, DollarSign, Users, Clock, BarChart2 } from 'lucide-react';
+import { TrendingUp, TrendingDown, DollarSign, Users, Clock, BarChart2, type LucideIcon } from 'lucide-react';
 import clsx from 'clsx';
 import { MetricData } from '../types';
 
-const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+const iconMap: Record<string, LucideIcon> = {
   DollarSign, Users, TrendingUp, Clock, BarChart2,
 };
 

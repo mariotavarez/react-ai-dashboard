@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { Sparkles, AlertCircle, TrendingUp, Target } from 'lucide-react';
+import { Sparkles, AlertCircle, TrendingUp, Target, type LucideIcon } from 'lucide-react';
 import { aiInsights } from '../data/mockData';
 import { AiInsight } from '../types';
 
@@ -9,7 +9,7 @@ const impactCfg: Record<AiInsight['impact'], { color: string; label: string }> =
   low:    { color: 'text-blue-400 bg-blue-500/10',   label: 'Low Impact'    },
 };
 
-const catIcons: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+const catIcons: Record<string, LucideIcon> = {
   Revenue: TrendingUp, Retention: AlertCircle, Conversion: Target,
 };
 
